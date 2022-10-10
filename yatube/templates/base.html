@@ -4,7 +4,11 @@
 	<meta charset="utf-8">
 	<meta name="description" content="Всё хорошо, деньги капают, время улетает :)">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>{{ title }}{{ group.title }}</title>
+	{% comment %} {% for text in title %} {% endcomment %}
+	{% block title %}
+		<title>{{ title }}{{ group.title }}</title>
+	{% endblock %}
+	{% comment %} {% endfor %} {% endcomment %}
 	<link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
 	<link rel="icon" type="image" href="{% static 'img/fav/fav.ico' %}">
 	<link rel="apple-touch-icon" sizes="180x180" href="{% static 'img/fav/apple-touch-icon.png' %}">
