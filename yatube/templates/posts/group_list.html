@@ -1,31 +1,28 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<head>
-	<title>Записи сообщества {{ group.title }}</title>
-</head>
 
-<body>
-	<main>
-		<article>
-			<h1>{{ group.description }}</h1>
-			<p>
-				Группа тайных поклонников графа.
-			</p>
-			{% for post in posts %}
-				<ul>
-					<li>
-						Автор: {{ post.author.get_full_name }}
-					</li>
-					<li>
-						Дата публикации: {{ post.pub_date|date:"d E Y" }}
-					</li>
-				</ul>
-				<p>{{ post.text|linebreaksbr }}</p>    
-				{% if not forloop.last %}<hr>{% endif %}
-			{% endfor %}
-		</article>
-	</main>
-</body>
+{% block title %}
+	<title>Записи сообщества {{ group.title }}</title>
+{% endblock %}
+
+<h1>{{ group.description }}</h1>
+<p>
+	Группа тайных поклонников графа.
+</p>
+{% for post in posts %}
+	<article>
+		<ul>
+			<li>
+				Автор: {{ post.author.get_full_name }}
+			</li>
+			<li>
+				Дата публикации: {{ post.pub_date|date:"d E Y" }}
+			</li>
+		</ul>
+		<p>{{ post.text|linebreaksbr }}</p>    
+		{% if not forloop.last %}<hr>{% endif %}
+	</article>
+{% endfor %}
 
 {% endblock %}
