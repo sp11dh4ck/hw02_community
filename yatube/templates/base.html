@@ -19,15 +19,15 @@
 		<meta name="theme-color" content="#ffffff">
 	</head>
 
-	<body>
-		{% include 'includes/header.html' %}
-		<main>
-			<div class="container py-5">
-				{% block content %}
-					Контент не подвезли :(
-				{% endblock %}
-			</div>
-		</main>
-		{% include 'includes/footer.html' %}
-	</body>
+  <body>
+    {% include 'includes/header.html' %}
+    <main>
+      <div class="container py-5">
+        {% block content %}
+          Контент не подвезли :(
+        {% endblock %}
+      </div>
+    </main>
+    {% include 'includes/footer.html' %}
+  </body>
 </html>
