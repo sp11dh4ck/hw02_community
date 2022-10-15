@@ -1,16 +1,10 @@
 {% extends 'base.html' %}
 
-{% block content %}
-
-{% comment %}
-При моей реализации всё работает,
-как только меняю title,
-то строка перестаёт нормально отображаться
-(не понял, как надо сделать)
-{% endcomment %}
 {% block title %}
-	<title>Последние обновления на сайте.</title>
+	Последние обновления на сайте.
 {% endblock %}
+
+{% block content %}
 
 <h1>Последние обновления на сайте</h1>
 {% for post in posts %}
@@ -25,20 +19,10 @@
 		</ul>
 		<p>{{ post.text|linebreaksbr }}</p>    
 		{% if post.group %}
-			{% comment %}
-			Так я же вывожу записи только одной группы,
-			разве не в этом смысл, что для одной группы,
-			отдельная страница с записями?
-			{% endcomment %}
 			<a href="{% url 'posts:group_list' post.group.slug %}">все записи группы</a>
 		{% endif %} 
-		{% if not forloop.last %}<hr>{% endif %}
-	{% comment %}
-	Не понял, что это значит
-	"Здесь пустая линия попала в карточку поста,
-	а она должна разделять их"
-	{% endcomment %}
 	</article>
+{% if not forloop.last %}<hr>{% endif %}
 {% endfor %}
 
 {% endblock %}
