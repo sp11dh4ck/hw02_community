@@ -1,15 +1,10 @@
 {% extends 'base.html' %}
-{% comment %}
-Все строки в vs code у меня имеют адекватное количество отступов
-(в соответствии с правилами), однако на github это выглядит,
-будто у меня по 100500 пробелов в строчке, я не знаю почему :(
-{% endcomment %}
+
 {% block title %}
 	Последние обновления на сайте.
 {% endblock %}
 
 {% block content %}
-
 <h1>Последние обновления на сайте</h1>
 {% for post in posts %}
 	<article>
@@ -28,5 +23,4 @@
 	</article>
 {% if not forloop.last %}<hr>{% endif %}
 {% endfor %}
-
 {% endblock %}
