@@ -9,9 +9,6 @@
           Войти на сайт
         </div>
         <div class="card-body">
-          {% comment %}
-          Вывод оишбки при неправильном вводе данных
-          {% endcomment %}
           {% if form.errors %}
               {% for field in form %}
                 {% for error in field.errors %}            
@@ -32,16 +29,16 @@
               action="{% url action_url %}"
             {% endif %}
           >
-          {% csrf_token %}
+            {% csrf_token %}
 
-          {% for field in form %}
-            <div class="form-group row my-3"
-              {% if field.field.required %} 
-                aria-required="true"
-              {% else %}
-                aria-required="false"
-              {% endif %}
-            >
+            {% for field in form %}
+              <div class="form-group row my-3"
+                {% if field.field.required %} 
+                  aria-required="true"
+                {% else %}
+                  aria-required="false"
+                {% endif %}
+              >
               <label for="{{ field.id_for_label }}">
                 {{ field.label }}
                   {% if field.field.required %}
@@ -57,20 +54,18 @@
                 {% endif %}
               </div>
             </div>
-          {% endfor %}
-          <div class="col-md-6 offset-md-4">
-            <button type="submit" class="btn btn-primary">
-              Войти
-            </button>
-            <!-- Тест на внимательность. Без переопределения шаблона этого адреса
-            не существует. Нужно что-то делать, иначе все упадет -->
-            {% comment %} <a href="{% url 'users:password_reset_form' %}" class="btn btn-link">
-              Забыли пароль?
-            </a> {% endcomment %}
-          </div>
+            {% endfor %}
+            <div class="col-md-6 offset-md-4">
+              <button type="submit" class="btn btn-primary">
+                Войти
+              </button>
+              <a href="{% url 'users:password_reset_form' %}" class="btn btn-link">
+                Забыли пароль?
+              </a>
+            </div>
           </form>
-        </div> <!-- card body -->
-      </div> <!-- card -->
-    </div> <!-- col -->
-</div> <!-- row -->
+        </div>
+      </div>
+    </div>
+  </div>
 {% endblock %} 
