@@ -40,4 +40,11 @@ urlpatterns = [
         ),
         name='password_reset_form'
     ),
+    path(
+        'password_reset_done/',
+        views.ChangePassEmail.as_view(
+            template_name='users/password_reset_done.html'
+        ),
+        name='password_reset_done'
+    ),
 ]
