@@ -30,7 +30,8 @@ class Post(models.Model):
         verbose_name='Группа',
         on_delete=models.SET_NULL,
         blank=True,
-        null=True
+        null=True,
+        related_name='posts'
     )
 
     class Meta:
