@@ -1,5 +1,5 @@
-from django.db import models
 from django.contrib.auth import get_user_model
+from django.db import models
 
 User = get_user_model()
 
@@ -27,8 +27,8 @@ class Post(models.Model):
     )
     group = models.ForeignKey(
         Group,
-        verbose_name='Группа',
         on_delete=models.SET_NULL,
+        verbose_name='Группа',
         blank=True,
         null=True,
         related_name='posts'
